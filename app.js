@@ -194,6 +194,7 @@
           hold.style.width = COVER_W + 'px';
           hold.style.height = COVER_H + 'px';
           hold.style.overflow = 'visible';
+          hold.style.boxShadow = 'none';
           var sc = doc.getElementById('previewScale');
           sc.style.transform = 'none';
           sc.style.boxShadow = 'none';

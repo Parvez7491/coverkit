@@ -126,7 +126,7 @@ body {
 }
 
 .preview-panel {
-  padding: clamp(10px, 1.6vh, 18px);
+  padding: clamp(20px, 3.2vh, 36px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,14 +213,21 @@ input:focus {
 .hint:empty { display: none; }
 
 /* ---------- Cover (A4 at 794 x 1123 px, proportions taken from the original) ---------- */
-.preview-holder { flex: none; overflow: hidden; }
+.preview-holder {
+  flex: none;
+  overflow: hidden;
+  /* drop shadow: tight contact shadow + soft lift, kept small enough to fit inside the panel padding */
+  box-shadow:
+    0 1px 2px rgba(21, 21, 31, 0.22),
+    0 6px 12px rgba(21, 21, 31, 0.18),
+    0 14px 24px rgba(21, 21, 31, 0.16);
+}
 .is-empty { color: #b9b9c1 !important; }
 
 .preview-scale {
   width: 794px;
   height: 1123px;
   transform-origin: top left;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
   background: #fff;
 }
 
@@ -407,7 +414,7 @@ a.btn[hidden] { display: none; }
   .nav { padding: 8px 14px; }
   .nav-links { gap: 12px; }
   .panel { padding: 16px; }
-  .preview-panel { padding: 12px; }
+  .preview-panel { padding: 22px; }
   .row.three { grid-template-columns: 1fr 1fr; }
   .row.three > :nth-child(3) { grid-column: 1 / -1; }
   .btn { font-size: 19px; gap: 8px; }
