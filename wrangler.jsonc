@@ -1,7 +1,16 @@
 {
   "name": "coverkit",
+  "main": "worker.js",
   "compatibility_date": "2026-10-01",
   "assets": {
-    "directory": "./"
-  }
+    "directory": "./",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/admin", "/admin/*"]
+  },
+  "d1_databases": [
+    // Database ID: D1 > coverkit-feedback > Overview
+    { "binding": "DB", "database_name": "coverkit-feedback", "database_id": "135ed90d-143c-4390-b20e-359434df054b" }
+  ],
+  // Fill these in after you create the Access app (they are not secret)
+  "vars": { "ACCESS_TEAM": "", "ACCESS_AUD": "" }
 }

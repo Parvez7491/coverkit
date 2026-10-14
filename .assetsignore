@@ -1,0 +1,9 @@
+# Files that must NOT be served publicly
+/worker.js
+/feedback.js
+/index.js
+/wrangler.jsonc
+/.assetsignore
+/schema.sql
+/node_modules
+/.git
