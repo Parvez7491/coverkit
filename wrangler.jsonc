@@ -1,7 +1,26 @@
 {
   "name": "coverkit",
+  "main": "worker.js",
   "compatibility_date": "2026-10-01",
   "assets": {
-    "directory": "./"
+    "directory": "./",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/admin", "/admin/*"]
+  },
+  "d1_databases": [
+    // Database ID: D1 > coverkit-feedback > Overview
+    { "binding": "DB", "database_name": "coverkit-feedback", "database_id": "135ed90d-143c-4390-b20e-359434df054b" }
+  ],
+  // Fill these in after you create the Access app (they are not secret)
+  "vars": { "ACCESS_TEAM": "plain-smoke-7b6f", "ACCESS_AUD": "cf755254ada4f9b0ffb7a8e6522da863cb0138945f404bba8aab87bd65d65d38" },
+
+  // Branch previews do not inherit the settings above, so they need their own copy.
+  // "disabled" keeps /admin locked on previews. Using the same database ID means
+  // test messages sent from a preview land in your real inbox.
+  "previews": {
+    "vars": { "ACCESS_TEAM": "disabled", "ACCESS_AUD": "disabled" },
+    "d1_databases": [
+      { "binding": "DB", "database_id": "135ed90d-143c-4390-b20e-359434df054b" }
+    ]
   }
 }
