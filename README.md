@@ -2,7 +2,7 @@
 
 Beautiful assignment cover pages for NSU students. Fill in the form, watch the A4 cover update live, and download it as a PDF. Free and open source.
 
-**Live site:** https://YOUR-SITE.pages.dev
+**Live site:** https://coverkit.parvezdev.workers.dev/
 
 ## Features
 
