@@ -12,5 +12,15 @@
     { "binding": "DB", "database_name": "coverkit-feedback", "database_id": "135ed90d-143c-4390-b20e-359434df054b" }
   ],
   // Fill these in after you create the Access app (they are not secret)
-  "vars": { "ACCESS_TEAM": "", "ACCESS_AUD": "" }
+  "vars": { "ACCESS_TEAM": "", "ACCESS_AUD": "" },
+
+  // Branch previews do not inherit the settings above, so they need their own copy.
+  // "disabled" keeps /admin locked on previews. Using the same database ID means
+  // test messages sent from a preview land in your real inbox.
+  "previews": {
+    "vars": { "ACCESS_TEAM": "disabled", "ACCESS_AUD": "disabled" },
+    "d1_databases": [
+      { "binding": "DB", "database_id": "135ed90d-143c-4390-b20e-359434df054b" }
+    ]
+  }
 }
