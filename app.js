@@ -101,15 +101,6 @@
     themeTimer = setTimeout(function () { root.classList.remove('theme-anim'); }, 420);
   });
 
-  // follow the system setting until the visitor picks one themselves
-  var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
-  if (systemDark.addEventListener) {
-    systemDark.addEventListener('change', function (e) {
-      var saved = null;
-      try { saved = localStorage.getItem(THEME_KEY); } catch (err) { /* ignore */ }
-      if (!saved) applyTheme(e.matches ? 'dark' : 'light', false);
-    });
-  }
   applyTheme(currentTheme(), false);
 
   // ---------- feedback ----------

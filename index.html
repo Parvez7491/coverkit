@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#fdfcf7">
   <script data-cfasync="false">
-    /* apply the saved (or system) theme before first paint, so there is no flash */
+    /* apply the saved theme (light by default) before first paint, so there is no flash */
     (function () {
       var t = 'light';
       try {
-        t = localStorage.getItem('coverkit:theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        t = localStorage.getItem('coverkit:theme') || 'light';
       } catch (e) { }
       document.documentElement.setAttribute('data-theme', t);
       var m = document.querySelector('meta[name="theme-color"]');

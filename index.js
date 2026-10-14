@@ -55,7 +55,7 @@ export async function onRequestGet({ request, env }) {
   const tab = (v, label) => `<a class="btn${cat === v ? ' btn-primary' : ''}" href="${v ? '?cat=' + v : '/admin'}"><b>${label}</b></a>`;
   const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex"><title>Feedback inbox - CoverKit</title>
-<script>(function(){var t='light';try{t=localStorage.getItem('coverkit:theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}document.documentElement.setAttribute('data-theme',t)})();</script>
+<script>(function(){var t='light';try{t=localStorage.getItem('coverkit:theme')||'light'}catch(e){}document.documentElement.setAttribute('data-theme',t)})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
