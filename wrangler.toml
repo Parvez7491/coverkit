@@ -1,0 +1,12 @@
+name = "coverkit"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "coverkit-feedback"
+database_id = "135ed90d-143c-4390-b20e-359434df054b"
