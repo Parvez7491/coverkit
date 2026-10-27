@@ -1,9 +1,14 @@
-# Files that must NOT be served publicly
-/worker.js
-/feedback.js
-/index.js
-/wrangler.jsonc
-/.assetsignore
-/schema.sql
-/node_modules
-/.git
+# Files in the repo root that must NOT be served as static assets.
+worker.js
+admin.js
+feedback.js
+downloads.js
+schema.sql
+wrangler.toml
+wrangler.toml.example
+README.md
+LICENSE
+.gitignore
+.assetsignore
+report-template.html
+assets/fonts/README.txt
