@@ -1,6 +1,6 @@
 // CoverKit service worker: the app shell works offline after the first visit.
 // Bump VERSION whenever index.html / style.css / app.js / courses.js change.
-const VERSION = 'coverkit-v12-2026-10';
+const VERSION = 'coverkit-v13-2026-10';
 const CORE = [
   '/',
   '/index.html',
