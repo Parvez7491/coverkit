@@ -930,7 +930,10 @@
     if (target === els.courseName && e && e.type === 'input') openCourseResults();
     if (e && e.type === 'change' && (target === els.courseName || target === els.courseCode)) learnCourse();
     // phones: after typing starts, shrink the cover to a sticky peek
-    if (!compactDone && window.innerWidth < 961) {
+    // only real typing shrinks the preview; dropdowns, swatches and template
+    // picks must leave the layout alone
+    var typing = e && e.type === 'input' && target && target.tagName === 'INPUT' && target.type !== 'hidden';
+    if (typing && !compactDone && window.innerWidth < 961) {
       compactDone = true;
       panel.classList.add('is-compact');
       queueFit();
@@ -1231,6 +1234,27 @@
   }
 
   coffeeBtn.addEventListener('click', function () { openModal(supportModal); });
+
+  // ---------- mobile menu (FAQ, Developer, GitHub, LinkedIn, coffee) ----------
+  var menuBtn = document.getElementById('menuBtn');
+  var navMenu = document.getElementById('navMenu');
+  function setMenu(open) {
+    navMenu.hidden = !open;
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  menuBtn.addEventListener('click', function () { setMenu(navMenu.hidden); });
+  navMenu.addEventListener('click', function (e) { if (e.target.closest('a, button')) setMenu(false); });
+  document.getElementById('menuCoffee').addEventListener('click', function () {
+    menuBtn.focus();
+    openModal(supportModal);
+  });
+  document.addEventListener('click', function (e) {
+    if (!navMenu.hidden && !navMenu.contains(e.target) && !menuBtn.contains(e.target)) setMenu(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !navMenu.hidden) { setMenu(false); menuBtn.focus(); }
+  });
+  window.addEventListener('resize', function () { if (window.innerWidth > 720) setMenu(false); });
   zoomBtn.addEventListener('click', openZoom);
   holder.addEventListener('click', openZoom);
 
